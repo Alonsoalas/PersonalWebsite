@@ -1,0 +1,162 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alonso's Website</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Alonso Alas</h1>
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" aria-label="abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+    <div class="menu-overlay"></div>
+
+    <nav class="nav-mobile">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-img">
+            <img
+              src="https://images.unsplash.com/photo-1530114882489-195de89c0a7a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="bill murray"
+            />
+          </div>
+
+          <div class="welcome">
+            <h2>Welcome to my website</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+              voluptate.
+            </p>
+            <a href="#service" class="btn-more toggle-btn">Explorar más...</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="services">
+        <div class="container">
+          <h2>Services</h2>
+          <div class="services-grid">
+            <div class="card">
+              <h3>Web Design</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Placeat, nobis assumenda! Autem, sint eius in enim neque quia
+                provident suscipit perferendis, nisi consequatur aliquam nulla
+                fugiat, dicta velit eum repellat.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Web Development</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Reprehenderit officiis nihil atque, sunt ducimus, quas ipsa
+                similique error tenetur quo veritatis optio voluptatum alias
+                molestias iste asperiores commodi. Iure cum qui doloremque quod
+                sunt. Suscipit totam ipsa cum alias recusandae.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Web Development</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem,
+                maxime qui? Illo nemo suscipit ipsum.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2026 Alonso Alas. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  </body>
+  <script>
+    // Selecciona todos los botones de ver más
+
+    const btn = document.querySelector(".toggle-btn");
+    const welcome = document.querySelector(".welcome");
+
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      welcome.classList.toggle("expanded");
+
+      btn.style.opacity = "0";
+
+      setTimeout(() => {
+        btn.textContent = welcome.classList.contains("expanded")
+          ? "Cerrar"
+          : "Explorar más...";
+        btn.style.opacity = "1";
+      }, 150);
+    });
+
+    // Selecciona el botón de hamburguesa y el menú de navegación
+    const hamburger = document.querySelector(".hamburger");
+    const navMobile = document.querySelector(".nav-mobile");
+    const navLinks = document.querySelectorAll(".nav-mobile a");
+    const overlay = document.querySelector(".menu-overlay");
+
+    function closeMenu() {
+      hamburger.classList.remove("active");
+      navMobile.classList.remove("active");
+      overlay.classList.remove("active");
+      document.body.classList.remove("no-scroll");
+    }
+
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navMobile.classList.toggle("active");
+      overlay.classList.toggle("active");
+      document.body.classList.toggle("no-scroll");
+    });
+
+    overlay.addEventListener("click", closeMenu);
+    navLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+  </script>
+</html>
